@@ -1,0 +1,14 @@
+#Chef and Way
+line1 = input();
+[no_of_streets,value_of_k] = line1.split(' ');
+value_of_k = int(value_of_k);
+line2 = input();
+special_numbers = line2.split(' ');
+min_values=[];
+min_values.append(int(special_numbers[0]));
+for i in range(1,int(no_of_streets)):
+    if((i-value_of_k) >= 0):
+        min_values.append(min(min_values[(i-value_of_k):i])*int(special_numbers[i]));
+    else:
+        min_values.append(min(min_values[0:i])*int(special_numbers[i]));
+print (min_values[len(min_values)-1]);
